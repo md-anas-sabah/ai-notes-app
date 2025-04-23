@@ -63,14 +63,14 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
-          <Link
+          {/* <Link
             href="/"
             className={`hover:text-primary transition-colors ${
               pathname === "/" ? "text-primary font-medium" : "text-gray-600"
             }`}
           >
             Home
-          </Link>
+          </Link> */}
           {user && (
             <Link
               href="/notes"
