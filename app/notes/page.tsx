@@ -11,7 +11,6 @@ export default function NotesPage() {
   const { user, loading } = useAuth();
   const router = useRouter();
 
-  // Redirect if not authenticated
   useEffect(() => {
     if (!loading && !user) {
       router.push("/auth/signin");
@@ -27,7 +26,7 @@ export default function NotesPage() {
   }
 
   if (!user) {
-    return null; // Will redirect in the useEffect
+    return null;
   }
 
   return (

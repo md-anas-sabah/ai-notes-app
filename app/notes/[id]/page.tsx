@@ -15,7 +15,6 @@ export default function EditNotePage() {
   const noteId = params.id as string;
   const supabase = createClient();
 
-  // Fetch note by ID
   const {
     data: note,
     isLoading: noteLoading,
@@ -38,14 +37,12 @@ export default function EditNotePage() {
     enabled: !!noteId && !!user,
   });
 
-  // Redirect if not authenticated
   useEffect(() => {
     if (!authLoading && !user) {
       router.push("/auth/signin");
     }
   }, [user, authLoading, router]);
 
-  // Check if user owns this note
   useEffect(() => {
     if (note && user && note.user_id !== user.id) {
       router.push("/notes");
@@ -76,7 +73,7 @@ export default function EditNotePage() {
   }
 
   if (!user || !note) {
-    return null; // Will redirect in the useEffect
+    return null;
   }
 
   return (

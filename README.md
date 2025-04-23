@@ -77,8 +77,8 @@ NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
 
-# DeepSeek API Key (or Groq alternative)
-DEEPSEEK_API_KEY=your-deepseek-api-key
+# Groq API Key 
+GROQ_API_KEY=your-groq-api-key
 
 # Next Auth
 NEXTAUTH_URL=http://localhost:3000

@@ -84,7 +84,7 @@ export default function NoteEditor({
           title,
           content,
           summary: summary || null,
-          user_id: "", // This will be set in the hook
+          user_id: "",
         });
       }
 

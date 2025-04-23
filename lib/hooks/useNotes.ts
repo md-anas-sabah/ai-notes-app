@@ -123,6 +123,7 @@ export function useNotes() {
       //   description: `Failed to update note: ${error.message}`,
       //   variant: "destructive",
       // });
+      console.log(error);
     },
   });
 
@@ -150,6 +151,7 @@ export function useNotes() {
       //   description: `Failed to delete note: ${error.message}`,
       //   variant: "destructive",
       // });
+      console.log(error);
     },
   });
 
