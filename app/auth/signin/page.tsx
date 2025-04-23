@@ -49,18 +49,48 @@ export default function SignIn() {
     }
   };
 
-  // For signin/page.tsx
+  // const handleGoogleSignIn = async () => {
+  //   setLoading(true);
+  //   setError(null);
+
+  //   try {
+  //     const { error } = await supabase.auth.signInWithOAuth({
+  //       provider: "google",
+  //       options: {
+  //         // Explicitly set the exact redirect URI that's registered in Google Cloud Console
+  //         redirectTo:
+  //           "https://uqtzuursxcxbvreqoxrj.supabase.co/auth/v1/callback",
+  //       },
+  //     });
+
+  //     if (error) {
+  //       setError(error.message);
+  //     }
+  //   } catch (err) {
+  //     setError("An unexpected error occurred");
+  //     console.error(err);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
   const handleGoogleSignIn = async () => {
     setLoading(true);
     setError(null);
 
     try {
+      const isLocalhost =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1";
+
+      const redirectTo = isLocalhost
+        ? "http://localhost:3000/"
+        : "https://ai-notes-app-wine.vercel.app/";
+
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          // Explicitly set the exact redirect URI that's registered in Google Cloud Console
-          redirectTo:
-            "https://uqtzuursxcxbvreqoxrj.supabase.co/auth/v1/callback",
+          redirectTo,
         },
       });
 
@@ -74,6 +104,7 @@ export default function SignIn() {
       setLoading(false);
     }
   };
+
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-200px)]">
       <Card className="w-full max-w-md">
