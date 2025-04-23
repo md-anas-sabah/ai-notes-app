@@ -49,7 +49,6 @@ export default function SignUp() {
         return;
       }
 
-      // Redirect to notes page or show success message
       router.push("/notes");
       router.refresh();
     } catch (err) {
@@ -68,7 +67,8 @@ export default function SignUp() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: `${window.location.origin}/api/auth/callback`,
+          // Use Supabase's direct callback URL instead of our API route
+          redirectTo: `https://uqtzuursxcxbvreqoxrj.supabase.co/auth/v1/callback`,
         },
       });
 

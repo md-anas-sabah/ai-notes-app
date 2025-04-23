@@ -49,6 +49,7 @@ export default function SignIn() {
     }
   };
 
+  // For signin/page.tsx
   const handleGoogleSignIn = async () => {
     setLoading(true);
     setError(null);
@@ -57,7 +58,9 @@ export default function SignIn() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: `${window.location.origin}/api/auth/callback`,
+          // Explicitly set the exact redirect URI that's registered in Google Cloud Console
+          redirectTo:
+            "https://uqtzuursxcxbvreqoxrj.supabase.co/auth/v1/callback",
         },
       });
 
@@ -71,7 +74,6 @@ export default function SignIn() {
       setLoading(false);
     }
   };
-
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-200px)]">
       <Card className="w-full max-w-md">
